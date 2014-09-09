@@ -52,6 +52,10 @@ def update(hostname, port, path):
     LOG.info("Firmware read, Size={0}".format(len(data)))
     ac.updateFirmware(data)
     LOG.info("Firmware update sent to drive.")
+    LOG.warn('Warning: Drives are currently rebooting. '
+             'Do NOT power off drives or run any other scripts at this time. '
+             'Doing so may cause irreversible failure to the drives. '
+             'This process can take several minutes.')
 
 def main():
     import argparse

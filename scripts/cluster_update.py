@@ -65,7 +65,13 @@ def update_cluster(version, binary_path, drives_path):
 
     LOG.info("Cluster update finished ({0} updated, {1} failed, {2} skipped)."
             .format(updated, len(failed), skipped))
-
+    
+    if updated > 0:
+        LOG.warn('Warning: Drives are currently rebooting. '
+                 'Do NOT power off drives or run any other scripts at this time. '
+                 'Doing so may cause irreversible failure to the drives. '
+                 'This process can take several minutes.')
+    
     if len(failed) > 0:
         LOG.info("Printing failed drives.")
         for c in failed: print c
