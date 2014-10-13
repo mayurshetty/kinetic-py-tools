@@ -21,6 +21,7 @@
 #@author: Ignacio Corderi
 
 import logging
+import sys
 from kinetic.admin import AdminClient
 
 LOG = logging.getLogger(__name__)
@@ -65,7 +66,13 @@ def discover(base, timeout, drives_path):
 
     LOG.info("Discovered {0} drives.".format(len(drives)))
 
+def python_version():
+    if sys.version_info <= (2,7,3):
+       print "Python Version is too old. Update Python to 2.7.3 or later"
+       exit()
+
 def main():
+    python_version()
     import argparse
 
     parser = argparse.ArgumentParser(description='Kinetic Discovery Tool')

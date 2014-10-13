@@ -57,7 +57,13 @@ def update(hostname, port, path):
              'Doing so may cause irreversible failure to the drives. '
              'This process can take several minutes.')
 
+def python_version():
+    if sys.version_info <= (2,7,3):
+        print "Python Version is too old. Update Python to 2.7.3 or later"
+        exit()
+
 def main():
+    python_version()
     import argparse
 
     parser = argparse.ArgumentParser(description='Kinetic Drive Update Tool')

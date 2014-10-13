@@ -21,6 +21,7 @@
 #@author: Ignacio Corderi
 
 import os
+import sys
 import logging
 import kinetic
 from kinetic.admin import AdminClient
@@ -76,8 +77,22 @@ def update_cluster(version, binary_path, drives_path):
         LOG.info("Printing failed drives.")
         for c in failed: print c
 
+def python_version():
+    if sys.version_info >= (2,7,3):
+        print "Version accepted"
+    else:
+        print "Version is too old. Update Python to 2.7.3 or later"
+
+def python_version():
+    if sys.version_info <= (2,7,3):
+        print "Python Version is too old. Update Python to 2.7.3 or later"
+        exit()
+
 def main():
+    python_version()
     import argparse
+
+    python_version()
 
     parser = argparse.ArgumentParser(description='Kinetic Drive Update Tool')
     parser.add_argument('version', metavar='version',
