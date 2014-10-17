@@ -73,7 +73,6 @@ def getLog(drives_path):
             print >>f1, "HDA Temperature:\t %s F" % hda_temp
             print >>f1, "CPU Temperature:\t %s F" % cpu_temp
             print >>f1, "Total Capacity:\t\t %s TB" % (total_capacity/float(1000000000000))
-            #print >>f1, "Capacity Full:\t\t %s %%" % capacity_full 
             print >>f1, "Capacity Full:\t\t %2f %%" % (capacity_full * 100)
             print >>f1, "Hard Disk:\t\t %s" % util_name1
             print >>f1, "Hard Disk Utlization:\t %s" % util_value1
